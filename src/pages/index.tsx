@@ -1,6 +1,7 @@
 import {Button, Dropdown, Input, Layout, Menu, MenuProps, Space} from "antd";
 import {ItemType} from "antd/es/menu/interface";
 import {DownOutlined} from "@ant-design/icons";
+import {RegisterModel} from "../components/RegisterModel";
 
 const selfItems: MenuProps = {
     items: [
@@ -76,6 +77,7 @@ export const Index = () => {
                         <span>登录</span>
                         <Button type="primary" className={"hover:!bg-[#4D555D] bg-[#4D555D] "}>注册</Button>
                     </Space>
+                    <RegisterModel open={true}/>
                 </div>
             </Layout.Header>
 
