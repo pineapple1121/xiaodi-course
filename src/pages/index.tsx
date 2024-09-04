@@ -1,7 +1,12 @@
 import {Button, Dropdown, Input, Layout, Menu, MenuProps, Space} from "antd";
 import {ItemType} from "antd/es/menu/interface";
 import {DownOutlined} from "@ant-design/icons";
-import {RegisterModel} from "../components/RegisterModel";
+import {useState} from "react";
+import {LoginModel} from "../components/LoginModel";
+import Sider from "antd/es/layout/Sider";
+import {Content} from "antd/es/layout/layout";
+import {Footer} from "antd/es/modal/shared";
+
 
 const selfItems: MenuProps = {
     items: [
@@ -56,14 +61,135 @@ const menuItems: ItemType[] = [
 
 ]
 
+type MenuItem = Required<MenuProps>['items'][number];
+
+const items: MenuItem[] = [
+    {
+        key: 'sub1',
+        label: `后端|架构`,
+        children: [
+            {
+                key: '1-1',
+                type: "group",
+                children: [
+                    {key: '1', label: '基础课程'},
+                    {key: '2', label: '进阶课程'},
+                ],
+            },
+
+        ],
+    }, {
+        key: 'sub1',
+        label: `后端|架构`,
+        children: [
+            {
+                key: '1-1',
+                type: "group",
+                children: [
+                    {key: '1', label: '基础课程'},
+                    {key: '2', label: '进阶课程'},
+                ],
+            },
+
+        ],
+    }, {
+        key: 'sub1',
+        label: `后端|架构`,
+        children: [
+            {
+                key: '1-1',
+                type: "group",
+                children: [
+                    {key: '1', label: '基础课程'},
+                    {key: '2', label: '进阶课程'},
+                ],
+            },
+
+        ],
+    }, {
+        key: 'sub1',
+        label: `后端|架构`,
+        children: [
+            {
+                key: '1-1',
+                type: "group",
+                children: [
+                    {key: '1', label: '基础课程'},
+                    {key: '2', label: '进阶课程'},
+                ],
+            },
+
+        ],
+    }, {
+        key: 'sub1',
+        label: `后端|架构`,
+        children: [
+            {
+                key: '1-1',
+                type: "group",
+                children: [
+                    {key: '1', label: '基础课程'},
+                    {key: '2', label: '进阶课程'},
+                ],
+            },
+
+        ],
+    },
+    {
+        key: 'sub1',
+        label: `后端|架构`,
+        children: [
+            {
+                key: '1-1',
+                type: "group",
+                children: [
+                    {key: '1', label: '基础课程'},
+                    {key: '2', label: '进阶课程'},
+                ],
+            },
+
+        ],
+    },
+    {
+        key: 'sub1',
+        label: `后端|架构`,
+        children: [
+            {
+                key: '1-1',
+                type: "group",
+                children: [
+                    {key: '1', label: '基础课程'},
+                    {key: '2', label: '进阶课程'},
+                ],
+            },
+
+        ],
+    },
+
+];
+
+const onClick: MenuProps['onClick'] = (e) => {
+    console.log('click', e);
+};
+
 export const Index = () => {
+    const {Header, Footer, Sider, Content} = Layout;
+    const [isRegister, setIsRegister] = useState(false)
+    const toRegister = () => {
+        setIsRegister(!isRegister)
+    }
+    const [isLogin, setIsLogin] = useState(false)
+    const toLogin = () => {
+        setIsLogin(!isLogin);
+
+    }
     return (
         <Layout className={"w-full bg-transparent"}>
             {/*海报图*/}
             <img src="https://file.xdclass.net/xdclass/20240701/sfTop.gif" alt="小滴课堂"
                  className={"w-full  h-full"}/>
             {/*头部导航*/}
-            <Layout.Header className={"bg-transparent shadow"}>
+            <Header className={"bg-transparent shadow"}>
                 <div className={"w-[1200px] h-[67px] mx-auto flex justify-between items-center space-x-4"}>
                     {/*logo*/}
                     <img src="https://front.cdn.xdclass.net/images/logo.webp" className="w-[138px] h-[63px]"/>
@@ -74,13 +200,39 @@ export const Index = () => {
                     <Menu mode="horizontal" items={menuItems} className={"flex-1 flex  justify-between items-center"}/>
                     {/*登录注册*/}
                     <Space size="large">
-                        <span>登录</span>
-                        <Button type="primary" className={"hover:!bg-[#4D555D] bg-[#4D555D] "}>注册</Button>
+                        <div>
+                            {isLogin && <LoginModel/>}
+                            <a onClick={toLogin}> 登录</a>
+
+                        </div>
+                        <Button type="primary" className={"hover:!bg-[#4D555D] bg-[#4D555D] "}
+                                onClick={toRegister}>注册</Button>
                     </Space>
-                    <RegisterModel open={true}/>
                 </div>
-            </Layout.Header>
+            </Header>
+            {/*主体内容区域*/}
+            <Layout className={"w-[1200px]  mx-auto flex justify-between items-center mt-[20px]"}>
+                {/*主体内容区域*/}
+                <Layout className="w-full h-[400px]">
+                    <Layout>
+                        <Sider width="25%">
+                            <Menu onClick={onClick} mode="vertical" items={items} className="w-[300px] h-[268px]"/>
+                        </Sider>
+                        <Content>
+                            <img
+                                src={"https://file.xdclass.net/video/2024/24%E9%87%91%E4%B9%9D%E9%93%B6%E5%8D%81/SF.jpg"}/>
+                        </Content>
+                        <Sider className="w-[180px] h-full">
+                            Sider
+                        </Sider>
+                    </Layout>
+                    <Footer>Footer</Footer>
+                </Layout>
+                {/*    详情展示区*/}
+            </Layout>
+            {/*{isRegister ? <RegisterModel open={true}/> : <RegisterModel open={false}/>}*/}
 
         </Layout>
+
     )
 }
