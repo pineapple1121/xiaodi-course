@@ -1,17 +1,9 @@
-import {FC, useState} from "react";
+import {FC} from "react";
 import {Button, Checkbox, Col, Divider, Input, Modal, ModalProps, Row, Typography} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 
-
 export const RegisterModel: FC<ModalProps> = (props) => {
-    const [isOk, setIsOk] = useState(false);
-    const handleRegister = () => {
-        setIsOk(!isOk)
-
-
-    }
     return (
-
         <Modal {...props} footer={null} closable={false} classNames={{content: "!p-0 w-[640px]   "}}>
             <Row className="w-full h-[500px] ">
                 <Col span={9} className={[
@@ -32,7 +24,7 @@ export const RegisterModel: FC<ModalProps> = (props) => {
                     <div className="px-[50px] pt-[36px] box-border ">
                         <div className=" w-full h-[32px] flex justify-between ">
                             <span className="abtext-[#404040] font-bold text-xl ">快速注册</span>
-                            <CloseOutlined className=" w-[20px] h-[20px]" onClick={handleRegister}/>
+                            <CloseOutlined className=" w-[20px] h-[20px]" onClick={props.onCancel}/>
                         </div>
                         <div>
                             <form className="text-[#FFF]">

@@ -3,9 +3,7 @@ import {ItemType} from "antd/es/menu/interface";
 import {DownOutlined} from "@ant-design/icons";
 import {useState} from "react";
 import {LoginModel} from "../components/LoginModel";
-import Sider from "antd/es/layout/Sider";
-import {Content} from "antd/es/layout/layout";
-import {Footer} from "antd/es/modal/shared";
+import {RegisterModel} from "../components/RegisterModel";
 
 
 const selfItems: MenuProps = {
@@ -230,8 +228,8 @@ export const Index = () => {
                 </Layout>
                 {/*    详情展示区*/}
             </Layout>
-            {/*{isRegister ? <RegisterModel open={true}/> : <RegisterModel open={false}/>}*/}
-
+            <RegisterModel open={isRegister} onCancel={() => setIsRegister(false)}/>
+            <LoginModel open={isLogin} onCancel={() => setIsLogin(false)}/>
         </Layout>
 
     )

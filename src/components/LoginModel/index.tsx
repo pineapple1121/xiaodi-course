@@ -1,8 +1,9 @@
-import {Button, Input, Modal, Tabs, TabsProps} from "antd";
+import {Button, Input, Modal, ModalProps, Tabs, TabsProps} from "antd";
 import {RedoOutlined} from "@ant-design/icons";
+import {FC} from "react";
 
 
-export const LoginModel: React.FC = (props) => {
+export const LoginModel: FC<ModalProps> = (props) => {
 
     const onChange = (key: string) => {
         console.log(key)
