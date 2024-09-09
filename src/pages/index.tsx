@@ -5,6 +5,8 @@ import {useState} from "react";
 import {LoginModel} from "../components/LoginModel";
 import {RegisterModel} from "../components/RegisterModel";
 import {Navigation} from "../components/views/Navigation";
+import {NavList} from "../components/views/NavList";
+import {InfoMenu} from "../components/views/InfoMenu";
 
 
 const selfItems: MenuProps = {
@@ -106,6 +108,27 @@ export const Index = () => {
                 <Navigation/>
                 {/*    详情展示区*/}
             </Layout.Content>
+            <Layout.Content
+                className={"w-[1200px] h-[70px] mx-auto py-[10px] my-[20px] shadow-lg rounded-[10px]  shadow-[#e5e5e5]"}>
+                <NavList/>
+            </Layout.Content>
+            <Layout.Content className={"w-[1200px] h-[20px] mx-auto my-[20px] flex flex-row "}>
+                <div className={"flex flex-row items-center"}>
+                    <img src={"https://front.cdn.xdclass.net/images/icon_hot.webp"}
+                         className={"w-[29px] h-[29px] mr-[5px]"}/>
+                    <h2 className={"text-[16px] text-[#4f555d]"}>热门课程</h2>
+                </div>
+                <div className={"text-[14px] ml-[48px] mr-[40px] flex flex-col h-[20px] leading-[20px]"}>
+                    最强王者课程, 冲刺金九银十
+                </div>
+            </Layout.Content>
+            <Layout
+                className={"w-[1200px] h-[694px] mx-auto *:!bg-transparent bg-transparent "}>
+                <Layout.Sider width={"916px"} className={"mr-[2px]  "}>
+                    <InfoMenu/>
+                </Layout.Sider>
+                <Layout.Sider width={"282px"}>F</Layout.Sider>
+            </Layout>
             <RegisterModel open={isRegister} onCancel={() => setIsRegister(false)}/>
             <LoginModel open={isLogin} onCancel={() => setIsLogin(false)}/>
         </Layout>
