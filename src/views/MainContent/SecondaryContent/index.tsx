@@ -16,6 +16,7 @@ export const CourseModule: FC<SecondaryContentProps> = (props) => {
                     {props.secondary}
                 </div>
             </Layout.Header>
+
             <Layout className={"!bg-transparent"}>
                 <Layout.Content className={"w-[916px] flex mr-[2px] flex-row flex-wrap justify-start"}>
                     {
@@ -24,10 +25,12 @@ export const CourseModule: FC<SecondaryContentProps> = (props) => {
                         ))
                     }
                 </Layout.Content>
-                <Layout.Sider theme="light" width={282}>
+                <Layout.Sider width={props.extra ? 285 : 0} theme={"light"} className={"pt-[20px]  "}>
                     {props.extra}
                 </Layout.Sider>
             </Layout>
+
         </Layout>
+
     )
 }

@@ -5,5 +5,5 @@ interface SecondaryContentProps {
     title?: string,
     secondary?: string,
     courses: Course[],
-    extra: ReactNode
+    extra?: ReactNode
 }

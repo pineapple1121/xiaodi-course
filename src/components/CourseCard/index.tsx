@@ -19,13 +19,9 @@ export const CourseCard: FC<{
                     <p className={"text-[#404040] leading-[16px] text-[14px]"}>{props.data.title}</p>
                 </div>
                 <div className={"flex flex-row text-[#7F7F7F] h-[22px] mt-[5px] text-[14px]"}>
-                    级别：<span className={"ml-[12px]"}>{props.data.level}</span>
-                    <div className={"flex flex-row items-center justify-center"}>
-                        <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
-                        <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
-                        <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
-                        <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
-                        <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+                    级别：<span className={"ml-[6px]"}>{props.data.level}</span>
+                    <div className={"pl-[12px] pt-[2px]"}>
+                        <GrayHotLogo/>
                     </div>
                 </div>
                 <div className={"flex flex-row justify-between mt-[5px] h-[25px]"}>
@@ -41,6 +37,70 @@ export const CourseCard: FC<{
                 </div>
             </div>
 
+        </div>
+    )
+}
+export const GrayHotLogo: FC<{ classname?: string }> = () => {
+    return (
+        <div className={"flex flex-row items-center justify-center pl-[4px] pt-[2px]"}>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+        </div>
+    )
+
+
+}
+export const FirstRedHotLogo: FC<{ classname?: string }> = () => {
+    return (
+        <div className={"flex flex-row items-center justify-center pl-[4px] pt-[2px]"}>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+        </div>
+    )
+}
+export const SecondaryRedHotLogo: FC<{ number: 1 | 2 | 3 | 4 | 5 }> = (props) => {
+    return (
+        <div className={"flex flex-row items-center justify-center pl-[4px] pt-[2px]"}>
+            {
+
+                Array(props.number).map((_, index) => (
+                    <img key={index} src={"https://front.cdn.xdclass.net/images/fire_active.webp"}
+                         className={"w-[14px] h-[14px]"}/>))
+            }
+            {
+
+                Array(5 - props.number).map((_, index) => (
+                    <img key={index} src={"https://front.cdn.xdclass.net/images/fire.webp"}
+                         className={"w-[14px] h-[14px]"}/>))
+            }
+        </div>
+    )
+}
+export const ThirdRedHotLogo = () => {
+    return (
+        <div className={"flex flex-row items-center justify-center pl-[4px] pt-[2px]"}>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+        </div>
+    )
+}
+export const ForthRedHotLogo = () => {
+    return (
+        <div className={"flex flex-row items-center justify-center pl-[4px] pt-[2px]"}>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire_active.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
+            <img src={"https://front.cdn.xdclass.net/images/fire.webp"} className={"w-[14px] h-[14px]"}/>
         </div>
     )
 }
