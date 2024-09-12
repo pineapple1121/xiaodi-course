@@ -1,7 +1,7 @@
 export const FooterNav = () => {
     return (
         <div className={" flex flex-col"}>
-            <div className={"flex flex-row justify-between "}>
+            <div className={"flex flex-row justify-between pb-2"}>
                 <div>
                     <img src={"https://front.cdn.xdclass.net/images/logo.webp"} className={"w-[163px] h-[80px]"}/>
                 </div>
@@ -34,7 +34,7 @@ export const FooterNav = () => {
                 </div>
             </div>
 
-            <div className={"flex flex-row justify-center items-center mt-1"}>
+            <div className={"flex flex-row justify-center items-center mt-2"}>
                 <p> Copyright © 2018 Xdclass,lnc. </p><a href="#">粤ICP备15092968号 </a>
             </div>
 

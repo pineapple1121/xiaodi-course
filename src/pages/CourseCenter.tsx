@@ -1,15 +1,23 @@
-import {Button, Dropdown, Input, Layout, Menu, MenuProps, Space} from "antd";
+import {
+    Button,
+    ConfigProvider,
+    Dropdown,
+    Input,
+    Layout,
+    Menu,
+    MenuProps,
+    Pagination,
+    PaginationProps,
+    Space
+} from "antd";
 import {ItemType} from "antd/es/menu/interface";
 import {DownOutlined} from "@ant-design/icons";
-import {useState} from "react";
 import {LoginModel} from "../components/LoginModel";
 import {RegisterModel} from "../components/RegisterModel";
-import {Navigation} from "../views/Navigation";
-import {NavList} from "../views/NavList";
+import {useState} from "react";
+import {SecondaryNav} from "../views/Navigation/SecondaryNav";
 import {MainContent} from "../views/MainContent";
-import {TeaInfo} from "../views/Navigation/TeaInfo";
 import {FooterNav} from "../views/Navigation/FooterNav";
-
 
 const selfItems: MenuProps = {
     items: [
@@ -65,9 +73,7 @@ const menuItems: ItemType[] = [
 
 
 ]
-
-
-export const Index = () => {
+export const CourseCenter = () => {
     const [isRegister, setIsRegister] = useState(false)
     const toRegister = () => {
         setIsRegister(!isRegister)
@@ -77,22 +83,36 @@ export const Index = () => {
         setIsLogin(!isLogin);
 
     }
+    const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
+        if (type === 'prev') {
+            return <a>上一页</a>;
+        }
+        if (type === 'next') {
+            return <a>下一页</a>;
+        }
+
+        return originalElement;
+    };
+
+    const onChange = (page: number) => {
+        console.log('Page: ', page);
+    };
 
     return (
-        <Layout className={"w-full bg-transparent"}>
-            {/*海报图*/}
+        <Layout className={"bg-transparent"}>
             <img src="https://file.xdclass.net/xdclass/20240701/sfTop.gif" alt="小滴课堂"
                  className={"w-full  h-full"}/>
             {/*头部导航*/}
-            <Layout.Header className={"bg-transparent shadow"}>
-                <div className={"w-[1200px] h-[67px] mx-auto flex justify-between items-center space-x-4"}>
+            <Layout.Header className={"!bg-transparent shadow"}>
+                <div className={"w-[1200px] h-[67px] mx-auto flex justify-between  items-center space-x-4"}>
                     {/*logo*/}
                     <img src="https://front.cdn.xdclass.net/images/logo.webp" className="w-[138px] h-[63px]"/>
                     {/* 导航*/}
                     {/*<div className={"flex justify-between items-center "}>*/}
 
                     {/*</div>*/}
-                    <Menu mode="horizontal" items={menuItems} className={"flex-1 flex  justify-between items-center"}/>
+                    <Menu mode="horizontal" items={menuItems}
+                          className={"flex-1 flex  justify-between items-center"}/>
                     {/*登录注册*/}
                     <Space size="large">
                         <div>
@@ -107,22 +127,42 @@ export const Index = () => {
                 <RegisterModel open={isRegister} onCancel={() => setIsRegister(false)}/>
                 <LoginModel open={isLogin} onCancel={() => setIsLogin(false)}/>
             </Layout.Header>
-            {/*主体内容区域*/}
-            <Layout.Content
-                className={"w-[1200px]  mx-auto  mt-[20px] "}>
-                {/*主要导航*/}
-                <Navigation/>
-                {/*次要导航*/}
-                <NavList
-                    className={"w-[1200px] h-[70px] mx-auto py-[10px] my-[20px] shadow-lg rounded-[10px]  shadow-[#e5e5e5]"}/>
-                {/* 主要内容 */}
-                <MainContent/>
-                < TeaInfo/>
+            {/* 内容区域 */}
+            <Layout.Content className={"flex flex-col pb-[20px] "}>
+                {/*     次要导航 */}
+                <SecondaryNav/>
+                <Layout.Content className={"flex flex-col mx-auto w-[1200px]"}>
+                    <div className={"flex flex-row space-x-4 mt-[20px] "}>
+                        <Button
+                            className={"bg-[#F38E48] text-white mr-[30px] border-[1px] border-solid border-[#F38E48]"}>最新</Button>
+                        <Button
+                            className={"text-[#F38E48] bg-white border-[1px] border-solid border-[#F38E48]"}>最热</Button>
+                    </div>
+                    <MainContent/>
+                    <div className={"flex flex-row  justify-center items-center space-x-4 mx-auto mt-4"}>
+                        <a>首页</a>
+                        <ConfigProvider
+                            theme={{
+                                components: {
+                                    Pagination: {
+                                        itemActiveBg: "#555",
+                                        itemBg: "#d9d9d9",
+                                        colorPrimary: "#fff",
+                                        colorPrimaryHover: "#fff",
+                                    },
+                                },
+                            }}
+                        >
+                            <Pagination total={500} showQuickJumper onChange={onChange} itemRender={itemRender}/>
+                        </ConfigProvider>
+                        <a>尾页</a>
+                    </div>
+
+                </Layout.Content>
             </Layout.Content>
             <Layout.Footer className={" flex justify-around h-[90px]  !p-2 !bg-[#FFF] border-[1px]"}>
                 <div className={" mx-auto  !bg-transparent w-[1200px] h-[80px] "}><FooterNav/></div>
             </Layout.Footer>
         </Layout>
-
     )
 }

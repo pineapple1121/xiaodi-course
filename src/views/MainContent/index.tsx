@@ -514,6 +514,7 @@ const data = [
 export const MainContent: FC = () => {
     return (
         <div>
+
             {
                 data.map((datum, index) => (
                     <CourseModule key={index} title={datum.title} secondary={datum.secondary}

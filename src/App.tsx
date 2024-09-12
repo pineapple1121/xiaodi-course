@@ -1,14 +1,13 @@
-
-import {Index} from "./pages";
+import {CourseCenter} from "./pages/CourseCenter.tsx";
 
 function App() {
 
 
-  return (
-    <>
-<Index/>
-    </>
-  )
+    return (
+        <>
+            <CourseCenter/>
+        </>
+    )
 }
 
 export default App
