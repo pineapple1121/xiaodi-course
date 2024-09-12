@@ -7,6 +7,8 @@ import {RegisterModel} from "../components/RegisterModel";
 import {Navigation} from "../views/Navigation";
 import {NavList} from "../views/NavList";
 import {MainContent} from "../views/MainContent";
+import {TeaInfo} from "../views/Navigation/TeaInfo";
+import {FooterNav} from "../views/Navigation/FooterNav";
 
 
 const selfItems: MenuProps = {
@@ -113,7 +115,12 @@ export const Index = () => {
                     className={"w-[1200px] h-[70px] mx-auto py-[10px] my-[20px] shadow-lg rounded-[10px]  shadow-[#e5e5e5]"}/>
                 {/* 主要内容 */}
                 <MainContent/>
+                < TeaInfo/>
             </Layout.Content>
+            <Layout.Footer className={" flex justify-around h-[90px]  !p-2 !bg-[#FFF] border-[1px]"}>
+                <div className={" mx-auto  !bg-transparent w-[1200px] h-[80px] "}><FooterNav/></div>
+            </Layout.Footer>
+
         </Layout>
 
     )
