@@ -159,7 +159,7 @@ export const FirstSiderModule = () => {
 export const SecondaryModule = () => {
     return (
         <div className={" shadow-lg "}>
-            <div className={" top-0  left-0 h-[618px] pt-[27px] rounded-[10px] relative w-[285px] z-2"}>
+            <div className={" top-0  left-0 h-[618px] pt-[27px] rounded-[10px] relative w-[285px] z-2 "}>
                 <img src={"https://front.cdn.xdclass.net/images/svg/hot_list.webp"}
                      className={"w-full h-[137px] rounded-t-lg absolute top-0  z-1"}/>
                 <img src={"https://front.cdn.xdclass.net/images/hot_top.webp"}
@@ -170,7 +170,7 @@ export const SecondaryModule = () => {
                 <span
                     className={"text-[24px]  absolute z-100 float-left font-bold pl-[15px] text-white"}> 热门排行榜</span>
                 <div
-                    className={"w-[266px] h-[502px] rounded-[10px] absolute bg-white ml-[10px] mt-[70px] flex flex-col  z-2"}>
+                    className={"w-[266px] h-[502px] rounded-[10px] absolute bg-white ml-[10px] mt-[70px]  flex flex-col  z-2"}>
                     {PopularRankData.map((item, index) => (
                         <div key={index} className={"w-full h-[54px] flex flex-col cursor-pointer"}>
                             <div className={"h-[54px]"}>
@@ -207,6 +207,58 @@ export const ThirdModule = () => {
             </div>
             <div className={"h-[485px] mt-[20px] shadow-lg rounded-t-lg overflow-hidden"}>
                 <img src={"https://file.xdclass.net/video/2022/22-aliyun/07.png"}/>
+            </div>
+        </div>
+    )
+}
+export const ForthSiderModule = () => {
+    return (
+        <div className={"w-full  shadow-lg "}>
+            <div className={" h-[136px]  !bg-transparent"}>
+                <Carousel arrows={true} infinite={true} autoplay={true} autoplaySpeed={2000}
+                          className={"mb-[30px]"}>
+                    {
+                        Images.map((item, index) => (
+                            <div key={index} className={"w-[284] "}>
+                                <img src={item} className={"rounded-t-xl"}/>
+                            </div>
+                        ))
+                    }
+                </Carousel>
+                <SecondaryModule/>
+            </div>
+
+        </div>
+    )
+}
+export const FifthSiderModule = () => {
+    function getDayOfWeek() {
+        const days = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        return days[new Date().getDay()];
+    }
+
+    return (
+        <div className={"shadow-lg mt-[20px]"}>
+            <div className={"py-[10px] px-[20px] font-bold text-[16px] h-12 leading-12 "}>
+                <p>老黄历</p>
+            </div>
+            <div className={"p-6 text-center flex flex-col justify-evenly h-[424px] w-[284px] "}>
+                <div className={"mb-[20px] "}>
+                    {new Date().getFullYear()}年 {new Date().getMonth() + 1}月 {new Date().getDate()}日
+                </div>
+                <div className={"text-[#ff5353] font-bold"}><em>
+                    {
+                        getDayOfWeek()
+                    }
+                </em></div>
+                <div className={"bg-[#4d555d] mt-[24px] text-[20px] text-white w-[200px] mx-auto"}>朝向</div>
+                <div className={"mt-[9px]"}>坐北朝南</div>
+                <div className={"bg-[#f6742e] mt-[24px] text-[20px] text-white w-[200px]  mx-auto"}>宜</div>
+                <div>今天可以给女同事买奶茶<br/>有希望</div>
+                <div className={"bg-[#ff5353] mt-[24px] text-[20px] text-white w-[200px]  mx-auto"}>忌</div>
+                <div>预防前男友复合<br/>
+                    预防割韭菜
+                </div>
             </div>
         </div>
     )

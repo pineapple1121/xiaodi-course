@@ -1,6 +1,7 @@
 export const FooterNav = () => {
     return (
-        <div className={" flex flex-col"}>
+
+        <div className={" flex flex-col  mx-auto  !bg-transparent w-[1200px] h-[80px]"}>
             <div className={"flex flex-row justify-between pb-2"}>
                 <div>
                     <img src={"https://front.cdn.xdclass.net/images/logo.webp"} className={"w-[163px] h-[80px]"}/>
@@ -39,5 +40,6 @@ export const FooterNav = () => {
             </div>
 
         </div>
+
     )
 }

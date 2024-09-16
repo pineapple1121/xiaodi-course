@@ -1,11 +1,11 @@
-import {CourseCenter} from "./pages/CourseCenter.tsx";
+import {Super} from "./pages/Super.tsx";
 
 function App() {
 
 
     return (
         <>
-            <CourseCenter/>
+            <Super/>
         </>
     )
 }

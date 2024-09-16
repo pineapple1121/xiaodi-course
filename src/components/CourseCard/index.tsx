@@ -7,7 +7,7 @@ export const CourseCard: FC<{
 }> = (props) => {
     return (
         <div
-            className={"w-[280px]  pt-[12px] pb-[15px] shadow-xl rounded-[10px]  shadow-[#e5e5e5] flex flex-col "}>
+            className={"w-[280px]  pt-[12px] pb-[15px] shadow-xl rounded-[10px]  shadow-[#e5e5e5] flex flex-col mb-[25px] "}>
             <div className={"overflow-hidden relative"}>
                 <p className={"absolute top-0 right-0 z-100 py-[2px] px-[8px] bg-[#F59A23] text-white rounded-bl-lg"}>会员特惠</p>
                 <img
