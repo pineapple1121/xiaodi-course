@@ -4,6 +4,7 @@ import {LoginModel} from "../LoginModel";
 import {RegisterModel} from "../RegisterModel";
 import {ItemType} from "antd/es/menu/interface";
 import {DownOutlined} from "@ant-design/icons";
+import {useNavigate} from "react-router-dom";
 
 const selfItems: MenuProps = {
     items: [
@@ -23,7 +24,7 @@ const menuItems: ItemType[] = [
     {
         key: "index", label: <span>首页</span>
     },
-    {key: "course", label: <span>课程中心</span>},
+    {key: "center", label: <span>课程中心</span>},
     {
         key: "svip",
         label: <div className={"flex items-center "}>
@@ -66,6 +67,7 @@ const Images: string[] = [
 ]
 
 export const HeaderNav = () => {
+    const navigate = useNavigate()
     const [isRegister, setIsRegister] = useState(false)
     const toRegister = () => {
         setIsRegister(!isRegister)
@@ -97,6 +99,13 @@ export const HeaderNav = () => {
 
                 {/*</div>*/}
                 <Menu mode="horizontal" items={menuItems}
+                      selectable={false}
+                      onClick={({key}) => {
+                          //只能跳转这三个页面
+                          if (["index", "center", "svip"].includes(key)) {
+                              navigate(`/${key === "index" ? "" : key}`)
+                          }
+                      }}
                       className={"flex-1 flex  flex-row justify-between items-center border-0"}/>
                 {/*登录注册*/}
                 <Space size="large">

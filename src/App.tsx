@@ -1,12 +1,10 @@
-import {Super} from "./pages/Super.tsx";
+import {Outlet} from "react-router-dom";
 
 function App() {
 
 
     return (
-        <>
-            <Super/>
-        </>
+        <Outlet/>
     )
 }
 
